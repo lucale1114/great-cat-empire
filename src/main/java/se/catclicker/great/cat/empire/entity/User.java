@@ -1,5 +1,6 @@
 package se.catclicker.great.cat.empire.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,12 @@ public class User {
     private String username;
     private String password;
     private int meowllings;
+    
+    private int robberCat = 0;
+    private int pirateCat = 0;
+    private int performerCat = 0;
+	private int luckyCat = 0;
+    private int ceoCat = 0;
     
     public int getId() {
         return id;
@@ -39,6 +46,36 @@ public class User {
     public void setMeowllings(int meowllings) {
         this.meowllings = meowllings;
     }
+    public int getRobberCat() {
+		return robberCat;
+	}
+	public void setRobberCat(int robberCat) {
+		this.robberCat = robberCat;
+	}
+	public int getPirateCat() {
+		return pirateCat;
+	}
+	public void setPirateCat(int pirateCat) {
+		this.pirateCat = pirateCat;
+	}
+	public int getPerformerCat() {
+		return performerCat;
+	}
+	public void setPerformerCat(int performerCat) {
+		this.performerCat = performerCat;
+	}
+	public int getLuckyCat() {
+		return luckyCat;
+	}
+	public void setLuckyCat(int luckyCat) {
+		this.luckyCat = luckyCat;
+	}
+	public int getCeoCat() {
+		return ceoCat;
+	}
+	public void setCeoCat(int ceoCat) {
+		this.ceoCat = ceoCat;
+	}
    
 
 }
