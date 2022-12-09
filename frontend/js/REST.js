@@ -1,7 +1,11 @@
 import User from "./User.js";
 
-getAllUsers();
-
+// The if will run that said function when you're on said page. Can use this for your page
+window.onload = function() {
+    if (window.location.href.indexOf('userspage.html') > -1) {
+        getAllUsers()
+    }
+  }
 function getAllUsers() {
 	let users = [];
 	fetch("http://localhost:8080/users")
