@@ -21,6 +21,7 @@ public class User {
     private int performerCat = 0;
 	private int luckyCat = 0;
     private int ceoCat = 0;
+	private int tomCat = 0;
     
     public int getId() {
         return id;
@@ -75,6 +76,12 @@ public class User {
 	}
 	public void setCeoCat(int ceoCat) {
 		this.ceoCat = ceoCat;
+	}
+    public int getTomCat() {
+		return tomCat;
+	}
+	public void setTomCat(int tomCat) {
+		this.tomCat = tomCat;
 	}
    
 

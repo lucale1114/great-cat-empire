@@ -1,0 +1,21 @@
+.catSlot {
+    display: flex;
+    padding-bottom: 1em;
+    padding-top: 0.8em;
+    border: 0.05em solid black;
+}
+
+.catSlot > div {
+    margin-left: 1.2em;
+}
+
+#catList {
+    overflow-y: scroll;
+    height: 500px;
+    width: 380px;
+}
+
+img {
+    padding-top: 1.25em;
+    margin-left: 1em;
+}
