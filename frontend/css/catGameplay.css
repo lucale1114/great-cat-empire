@@ -1,0 +1,9 @@
+#catClicker {
+    display: inline-flex;
+    align-items: center;
+}
+
+#buttonImage img {
+    padding-top: 0;
+    margin-left: 0;
+}
