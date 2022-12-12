@@ -5,63 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\css\catList.css">
+    <link rel="stylesheet" href="..\css\catGameplay.css">
     <title>Great Cat Empire</title>
 </head>
+
 <body>
     <script type="module" src="..\js\REST.js" defer></script>
     <script src="..\js\Game.js" defer></script>
 
     <a href="userspage.html">Players</a>
+
+    <div id="catGameplay">
+        <div id="meowllingScoreboard">
+            <h4>Total Meowllings</h4>
+            <h4 id="totalMeowllings"></h4>
+        </div>
+        <button id="catClicker" onclick="addMeowlling(1)">
+            <div id="buttonImage">
+                <img src="https://styles.redditmedia.com/t5_2r5i1/styles/communityIcon_x4lqmqzu1hi81.jpg?width=256&s=fc15e67e2b431bbd2e93e980be3090306b78be55" alt="Meowlling Clicker" height="200" width="200">
+            </div>
+        </button>
+    </div>
+
     <div id="catList">
-    <div class="catSlot">
-        <img src="https://thumbs.dreamstime.com/b/gray-cat-criminal-balaclava-holds-assault-rifle-armed-very-dangerous-wanted-cat-gray-assault-rifle-210698640.jpg" alt="Robber Cat" height="100" width="100">
-        <div>
-        <h2 id="robberAmount">Robber Cat: 0</h2>
-        <h5>1 per second</h5>
-        <button class="buy" onclick="purchaseCat(1, 50)">50 Meowllings</button>
+        <div class="catSlot">
+            <img src="https://thumbs.dreamstime.com/b/gray-cat-criminal-balaclava-holds-assault-rifle-armed-very-dangerous-wanted-cat-gray-assault-rifle-210698640.jpg" alt="Robber Cat" height="100" width="100">
+            <div>
+            <h2 id="robberAmount">Robber Cat: 0</h2>
+            <h5>1 per second</h5>
+            <button class="buy" onclick="purchaseCat(1, 50)">50 Meowllings</button>
+            </div>
         </div>
-    </div>
-    <div class="catSlot">
-        <img src="https://m.media-amazon.com/images/I/51yL023V6kL._AC_SY780_.jpg" alt="Pirate Cat" height="100" width="100">
-        <div>
-        <h2 id="pirateAmount">Pirate Cat: 0</h2>
-        <h5>6 per second</h5>
-        <button class="buy" onclick="purchaseCat(2, 200)">200 Meowllings</button>
-    </div>
-    </div>
-    <div class="catSlot">
-        <img src="https://i.kym-cdn.com/entries/icons/original/000/000/166/keyboar.jpg" alt="Performer Cat" height="100" width="100">
-        <div>
-        <h2 id="performerAmount">Performer Cat: 0</h2>
-        <h5>18 per second</h5>
-        <button class="buy" onclick="purchaseCat(3, 525)">525 Meowllings</button>
-    </div>
-    </div>
-    <div class="catSlot">
-        <img src="https://img.joomcdn.net/affe37091764fe58141c26f39d699b2cd7dc4c16_1024_1024.jpeg" alt="Lucky Cat" height="100" width="100">
-        <div>
-        <h2 id="luckyAmount">Lucky Cat: 0</h2>
-        <h5>77 per second</h5>
-        <button class="buy" onclick="purchaseCat(4, 1777)">1,777 Meowllings</button>
-    </div>
-    </div>
-    <div class="catSlot">
-        <img src="https://preview.redd.it/ucigprzens801.jpg?width=640&crop=smart&auto=webp&s=189b5a7c5acabac9ce4d7658cf4754099be2ddee" alt="CEO Cat" height="100" width="100">
-        <div>
-        <h2 id="ceoAmount">CEO Cat: 0</h2>
-        <h5>254 per second</h5>
-        <button class="buy" onclick="purchaseCat(5, 5000)">5,000 Meowllings</button>
+        <div class="catSlot">
+            <img src="https://m.media-amazon.com/images/I/51yL023V6kL._AC_SY780_.jpg" alt="Pirate Cat" height="100" width="100">
+            <div>
+                <h2 id="pirateAmount">Pirate Cat: 0</h2>
+                <h5>6 per second</h5>
+                <button class="buy" onclick="purchaseCat(2, 200)">200 Meowllings</button>
+            </div>
         </div>
-    </div>
+        <div class="catSlot">
+            <img src="https://i.kym-cdn.com/entries/icons/original/000/000/166/keyboar.jpg" alt="Performer Cat" height="100" width="100">
+                <div>
+                <h2 id="performerAmount">Performer Cat: 0</h2>
+                <h5>18 per second</h5>
+                <button class="buy" onclick="purchaseCat(3, 525)">525 Meowllings</button>
+            </div>
+        </div>
+        <div class="catSlot">
+            <img src="https://img.joomcdn.net/affe37091764fe58141c26f39d699b2cd7dc4c16_1024_1024.jpeg" alt="Lucky Cat" height="100" width="100">
+            <div>
+                <h2 id="luckyAmount">Lucky Cat: 0</h2>
+                <h5>77 per second</h5>
+                <button class="buy" onclick="purchaseCat(4, 1777)">1,777 Meowllings</button>
+            </div>
+        </div>
+        <div class="catSlot">
+            <img src="https://preview.redd.it/ucigprzens801.jpg?width=640&crop=smart&auto=webp&s=189b5a7c5acabac9ce4d7658cf4754099be2ddee" alt="CEO Cat" height="100" width="100">
+            <div>
+                <h2 id="ceoAmount">CEO Cat: 0</h2>
+                <h5>254 per second</h5>
+                <button class="buy" onclick="purchaseCat(5, 5000)">5,000 Meowllings</button>
+            </div>
+        </div>
     <div class="catSlot">
         <img src="https://rhisac.org/wp-content/uploads/apachetomcat-1024x1024.jpg" alt="Tomcat" height="100" width="100">
         <div>
-        <h2 id="tomAmount">Tomcat: 0</h2>
-        <h5>1,998 per second</h5>
-        <button class="buy" onclick="purchaseCat(6, 19980)">19,980 Meowllings</button>
-    </div>
+            <h2 id="tomAmount">Tomcat: 0</h2>
+            <h5>1,998 per second</h5>
+            <button class="buy" onclick="purchaseCat(6, 19980)">19,980 Meowllings</button>
+        </div>
     </div>
 </div>
-    <h1>HELLOOOOOO</h1>
+
 </body>
 </html>
