@@ -163,4 +163,6 @@ function addMeowlling(amount) {
 	meowllings += amount;
 	meowlingsFormatted = String(meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
 	console.log(meowlingsFormatted);
+	console.log("you have " + meowllings + " meowllings!")
+	document.getElementById("totalMeowllings").innerHTML = meowllings;
 }
