@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\css\userList.css">
     <title>Great Cat Empire</title>
 </head>
 <body>
     <script type="module" src="..\js\REST.js" defer>window.onload = getAllUsers</script>
-    <ul id="users"></ul>
+
+    <a href="index.html">Back</a>
+
+    <h1>All Players</h1>
+    <ul id="users">
+        <div class="userEntry">
+            <div style="display: flex;">
+                <img src="https://pngimg.com/uploads/cat/cat_PNG50480.png" height="30" width="30" style="margin-top: 1em; margin-right: -1em; margin-left: 1em;">
+                <h2>Name</h2>
+            </div>
+            <div style="display:flex;">
+                <h3>Meowllings: 0</h3>
+                <h3>Total Cats: 0</h3>
+            </div>
+        </div>
+    </ul>
 </body>
 </html>

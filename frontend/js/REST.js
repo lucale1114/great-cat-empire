@@ -6,6 +6,7 @@ window.onload = function() {
         getAllUsers()
     }
   }
+
 function getAllUsers() {
 	let users = [];
 	fetch("http://localhost:8080/users")
@@ -15,17 +16,22 @@ function getAllUsers() {
 			for (let v of data) {
 				let user = new User();
 				user.id = v.id;
-				user.meowllings = v.meowllings;
+				user.meowllings = String(v.meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
 				user.username = v.username;
 				user.password = v.password;
+                user.catAmount = parseInt(v.robberCat) + parseInt(v.pirateCat) + parseInt(v.performerCat) + parseInt(v.luckyCat)
+                 + parseInt(v.ceoCat) + parseInt(v.tomCat) 
 				users.push(user);              
 			}
             let ul = document.getElementById("users");
+            let template = document.getElementsByClassName("userEntry");
             for (const v of users) {
-                console.log(users)
-                let li = document.createElement("li");
-                li.textContent = v.username + " has " + v.meowllings + " Meowllings!";
-                ul.appendChild(li);
+                let duped = template.item(0).cloneNode(true);
+                duped.children[0].children[1].innerText = v.username
+                duped.children[1].children[0].innerText = "Meowllings: \n" + v.meowllings
+                duped.children[1].children[1].innerText = "Total Cats: \n" + v.catAmount
+                ul.append(duped)
             }
+            ul.removeChild(template[0])
 		});
 }

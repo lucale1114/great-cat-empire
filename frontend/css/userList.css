@@ -1,0 +1,20 @@
+h3 {
+    margin-left: 1em;
+}
+
+h2 {
+    padding-left: 1em;
+}
+
+#users {
+    display: grid;
+    grid-template-columns: 17em 17em 17em 17em;
+    grid-template-rows: 9em 9em 9em 9em; 
+    column-gap: 3em;
+    row-gap: 3em;
+}
+
+.userEntry {
+    border: 0.05em dashed black;
+
+}
