@@ -2,6 +2,10 @@ let meowllings = 0;
 // Use this for showing the value. It is formatted
 let meowlingsFormatted = "0";
 
+// To add a new cat here, add a variable everywhere appropriate (saveall, below here, loadall)
+// In purchase cat, add your type and price
+// Then copy and paste one of the timeout methods and replace the cat with your own, and change add meowlling to how much you want it to earn
+
 let robberCat = 0;
 let pirateCat = 0;
 let performerCat = 0;
@@ -164,5 +168,5 @@ function addMeowlling(amount) {
 	meowlingsFormatted = String(meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
 	console.log(meowlingsFormatted);
 	console.log("you have " + meowllings + " meowllings!")
-	document.getElementById("totalMeowllings").innerHTML = meowllings;
+	document.getElementById("totalMeowllings").innerHTML = meowlingsFormatted;
 }
