@@ -1,3 +1,12 @@
+@font-face {
+    font-family: CatFonts;
+    src: url(CatFont.ttf);
+}
+
+div{
+    font-family: CatFonts, sans-serif;
+}
+
 .flex{
     
     position: absolute;
