@@ -25,7 +25,7 @@ public class UserDao {
         this.ds = ds;
     }
 
-    public UserId validate(String user, String password) {
+    public UserId validate(String user, String password) throws AccountNotFoundException {
         try (Connection conn = ds.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(
@@ -39,7 +39,7 @@ public class UserDao {
                 }
             }
         } catch (SQLException ex) {
-            throw new AccountNotFoundException(ex);   
+            throw new AccountNotFoundException();
         }
 
         throw new AccountNotFoundException("Unable to find user " + user);
