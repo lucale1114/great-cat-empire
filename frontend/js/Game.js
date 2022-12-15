@@ -19,7 +19,11 @@ let tomCat = 0;
 // To control that the user is logged in we can save their username to localStorage and save their session that way for all the pages. We'd only need to load the data once anyway.
 // Obviously a completely terrible idea if we were to make something real but hey it works here!
 
-
+function clickedCat() {
+	let catclick = new Audio('../resources/catclick.wav')
+	catclick.play()
+	addMeowlling(1)
+}
 function saveAll() {
 	localStorage.setItem("meowllings", meowllings);
 	localStorage.setItem("robberCat", robberCat);
@@ -57,6 +61,8 @@ function purchaseCat(type, cost) {
 	if (meowllings < cost) {
 		return false;
 	}
+	let buySound = new Audio('../resources/catbuy.mp3')
+	buySound.play()
 	meowllings -= cost;
 	switch (type) {
 		case 1:
