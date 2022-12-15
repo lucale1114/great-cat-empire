@@ -1,6 +1,6 @@
 let meowllings = 0;
 // Use this for showing the value. It is formatted
-let meowlingsFormatted = "0";
+let meowllingsFormatted = "0";
 
 // To add a new cat here, add a variable everywhere appropriate (saveall, below here, loadall)
 // In purchase cat, add your type and price
@@ -22,6 +22,7 @@ let mafiaCat = 0;
 
 function clickedCat() {
 	let catclick = new Audio('../resources/catclick.wav')
+	catclick.volume = 0.25
 	catclick.play()
 	addMeowlling(1)
 }
@@ -50,9 +51,10 @@ function loadAll() {
 	pirateAmount.innerText = "Pirate Cat: " + pirateCat.toString();
 	performerAmount.innerText = "Performer Cat: " + performerCat.toString();
 	luckyAmount.innerText = "Lucky Cat: " + luckyCat.toString();
-	ceoAmount.innerText = "Ceo Cat: " + ceoCat.toString();
+	ceoAmount.innerText = "CEO Cat: " + ceoCat.toString();
 	tomAmount.innerText = "Tomcat: " + tomCat.toString();
-	mafiaAmount.innerText = "Mafia Cat"  + mafiaCat.toString();
+	mafiaAmount.innerText = "Mafia Cat: "  + mafiaCat.toString();
+	totalMeowllings.innerText = meowllings.toString();
 	console.log("Loaded!");
 }
 
@@ -164,7 +166,7 @@ function purchaseCat(type, cost) {
 			if (i) tomEarning(i);
 			return;
 		}
-		addMeowlling(1998);
+		addMeowlling(19980);
 		if (i) tomEarning(i);
 	}, 1000 / tomCat);
 })(1);
@@ -189,8 +191,8 @@ function purchaseCat(type, cost) {
 
 function addMeowlling(amount) {
 	meowllings += amount;
-	meowlingsFormatted = String(meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
-	console.log(meowlingsFormatted);
+	meowllingsFormatted = String(meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
+	console.log(meowllingsFormatted);
 	console.log("you have " + meowllings + " meowllings!")
-	document.getElementById("totalMeowllings").innerHTML = meowlingsFormatted;
+	document.getElementById("totalMeowllings").innerHTML = meowllingsFormatted;
 }
