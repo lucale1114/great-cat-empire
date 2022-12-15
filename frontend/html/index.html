@@ -26,12 +26,12 @@
         Now go to Game.js
     -->
 
-    <div id="catGameplay">
+    <div id="catGameplay" text-a>
         <div id="meowllingScoreboard">
             <h4>Total Meowllings</h4>
             <h4 id="totalMeowllings"></h4>
         </div>
-        <button id="catClicker" onclick="addMeowlling(1)">
+        <button id="catClicker" onclick="addMeowlling(1)" >
             <div id="buttonImage">
                 <img src="https://styles.redditmedia.com/t5_2r5i1/styles/communityIcon_x4lqmqzu1hi81.jpg?width=256&s=fc15e67e2b431bbd2e93e980be3090306b78be55" alt="Meowlling Clicker" height="200" width="200">
             </div>
@@ -79,12 +79,20 @@
                 <button class="buy" onclick="purchaseCat(5, 5000)">5,000 Meowllings</button>
             </div>
         </div>
+        <div class="catSlot">
+            <img src="https://static.displate.com/280x392/displate/2021-04-20/e200c5d4a37ddfddeea0c7487ffb892f_8337e980efd8d6eba7742fa657fadd87.jpg" alt="Mafiacat" height="100" width="100">
+            <div>
+                <h2 id="mafiaAmount">Mafia Cat: 0</h2>
+                <h5>780 per second</h5>
+                <button class="buy" onclick="purchaseCat(7, 12680)">12,680 Meowllings</button>
+            </div>
+        </div>
     <div class="catSlot">
         <img src="https://rhisac.org/wp-content/uploads/apachetomcat-1024x1024.jpg" alt="Tomcat" height="100" width="100">
         <div>
             <h2 id="tomAmount">Tomcat: 0</h2>
             <h5>1,998 per second</h5>
-            <button class="buy" onclick="purchaseCat(6, 19980)">19,980 Meowllings</button>
+            <button class="buy" onclick="purchaseCat(6, 199800)">199,800 Meowllings</button>
         </div>
     </div>
 </div>
