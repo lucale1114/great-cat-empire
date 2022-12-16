@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\css\catList.css">
     <link rel="stylesheet" href="..\css\catGameplay.css">
+    <link rel="stylesheet" href="..\css\styles.css">
     <link rel="icon" type="image/x-icon" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/42a90bd0-7547-46e6-b670-f76805a7f1de/datnw9e-67fbd1a7-36c6-4326-9b92-45306a0a19f8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQyYTkwYmQwLTc1NDctNDZlNi1iNjcwLWY3NjgwNWE3ZjFkZVwvZGF0bnc5ZS02N2ZiZDFhNy0zNmM2LTQzMjYtOWI5Mi00NTMwNmEwYTE5ZjgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OgCXotK8JgDRdPDTfcbqFjeQLpEpb_nkMSPcXnGo4h8">
     <title>Great Cat Empire</title>
 </head>
@@ -13,9 +14,9 @@
 <body>
     <script type="module" src="..\js\REST.js" defer></script>
     <script src="..\js\Game.js" defer></script>
-
+    <div class="flex4">
     <a href="userspage.html">Players</a>
-
+    </div>
      <!--
         To add a new cat, first copy and paste a slot, for example the first Robber Cat one
         Make sure it's added in the backend too by just adding a new int.
@@ -25,20 +26,27 @@
 
         Now go to Game.js
     -->
-
-    <div id="catGameplay">
-        <div id="meowllingScoreboard">
-            <h4>Total Meowllings</h4>
-            <h4 id="totalMeowllings"></h4>
-        </div>
-        <button id="catClicker" onclick="addMeowlling(1)">
+    <div class="flex">
+    <div id="catGameplay" >
+        
+        <button id="catClicker" onclick="clickedCat()">
             <div id="buttonImage">
-                <img src="https://styles.redditmedia.com/t5_2r5i1/styles/communityIcon_x4lqmqzu1hi81.jpg?width=256&s=fc15e67e2b431bbd2e93e980be3090306b78be55" alt="Meowlling Clicker" height="200" width="200">
+                <img src="https://media.discordapp.net/attachments/1052925262586708020/1052951389992652870/5a5a8d9614d8c4188e0b08f0.png" alt="Meowlling Clicker" height="200" width="200">
             </div>
         </button>
     </div>
+    </div>
 
-    <div id="catList">
+    <div class="flex3">
+        <div id="meowllingScoreboard">
+            <h3>Total Meowllings</h4>
+            <h2 id="totalMeowllings">0</h4>
+        </div>
+
+    </div>
+
+    <div class="flex2">
+    <div id="catList" >
         <div class="catSlot">
             <img src="https://thumbs.dreamstime.com/b/gray-cat-criminal-balaclava-holds-assault-rifle-armed-very-dangerous-wanted-cat-gray-assault-rifle-210698640.jpg" alt="Robber Cat" height="100" width="100">
             <div>
@@ -72,22 +80,32 @@
             </div>
         </div>
         <div class="catSlot">
-            <img src="https://preview.redd.it/ucigprzens801.jpg?width=640&crop=smart&auto=webp&s=189b5a7c5acabac9ce4d7658cf4754099be2ddee" alt="CEO Cat" height="100" width="100">
+            <img src="../resources/ceocat.png" alt="CEO Cat" height="100" width="100">
             <div>
                 <h2 id="ceoAmount">CEO Cat: 0</h2>
                 <h5>254 per second</h5>
                 <button class="buy" onclick="purchaseCat(5, 5000)">5,000 Meowllings</button>
             </div>
         </div>
+        <div class="catSlot">
+            <img src="https://static.displate.com/280x392/displate/2021-04-20/e200c5d4a37ddfddeea0c7487ffb892f_8337e980efd8d6eba7742fa657fadd87.jpg" alt="Mafiacat" height="100" width="100">
+            <div>
+                <h2 id="mafiaAmount">Mafia Cat: 0</h2>
+                <h5>780 per second</h5>
+                <button class="buy" onclick="purchaseCat(7, 12680)">12,680 Meowllings</button>
+            </div>
+        </div>
     <div class="catSlot">
         <img src="https://rhisac.org/wp-content/uploads/apachetomcat-1024x1024.jpg" alt="Tomcat" height="100" width="100">
         <div>
             <h2 id="tomAmount">Tomcat: 0</h2>
-            <h5>1,998 per second</h5>
-            <button class="buy" onclick="purchaseCat(6, 19980)">19,980 Meowllings</button>
+            <h5>19,980 per second</h5>
+            <button class="buy" onclick="purchaseCat(6, 199800)">199,800 Meowllings</button>
         </div>
     </div>
 </div>
+</div>
+
 
 </body>
 </html>

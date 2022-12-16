@@ -2,9 +2,13 @@ import User from "./User.js";
 
 // The if will run that said function when you're on said page. Can use this for your page
 window.onload = function() {
+   
     if (window.location.href.indexOf('userspage.html') > -1) {
         getAllUsers()
     }
+    let song = new Audio('../resources/keyboard.mp3')
+    song.loop = true
+    song.play()
   }
 
 function getAllUsers() {

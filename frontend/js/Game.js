@@ -1,6 +1,6 @@
 let meowllings = 0;
 // Use this for showing the value. It is formatted
-let meowlingsFormatted = "0";
+let meowllingsFormatted = "0";
 
 // To add a new cat here, add a variable everywhere appropriate (saveall, below here, loadall)
 // In purchase cat, add your type and price
@@ -12,6 +12,7 @@ let performerCat = 0;
 let luckyCat = 0;
 let ceoCat = 0;
 let tomCat = 0;
+let mafiaCat = 0;
 
 // These functions are used locally. If the user goes to
 // the stats screen and comes back their values should be available immediately
@@ -19,7 +20,12 @@ let tomCat = 0;
 // To control that the user is logged in we can save their username to localStorage and save their session that way for all the pages. We'd only need to load the data once anyway.
 // Obviously a completely terrible idea if we were to make something real but hey it works here!
 
-
+function clickedCat() {
+	let catclick = new Audio('../resources/catclick.wav')
+	catclick.volume = 0.25
+	catclick.play()
+	addMeowlling(1)
+}
 function saveAll() {
 	localStorage.setItem("meowllings", meowllings);
 	localStorage.setItem("robberCat", robberCat);
@@ -28,6 +34,7 @@ function saveAll() {
 	localStorage.setItem("luckyCat", luckyCat);
 	localStorage.setItem("ceoCat", ceoCat);
 	localStorage.setItem("tomCat", tomCat);
+	localStorage.setItem("mafiaCat", mafiaCat);
 	console.log("Saved!");
 }
 function loadAll() {
@@ -38,14 +45,16 @@ function loadAll() {
 	luckyCat = parseInt(localStorage.getItem("luckyCat"));
 	ceoCat = parseInt(localStorage.getItem("ceoCat"));
 	tomCat = parseInt(localStorage.getItem("tomCat"));
+	mafiaCat = parseInt(localStorage.getItem("mafiaCat"))
 
 	robberAmount.innerText = "Robber Cat: " + robberCat.toString();
 	pirateAmount.innerText = "Pirate Cat: " + pirateCat.toString();
 	performerAmount.innerText = "Performer Cat: " + performerCat.toString();
 	luckyAmount.innerText = "Lucky Cat: " + luckyCat.toString();
-	ceoAmount.innerText = "Ceo Cat: " + ceoCat.toString();
+	ceoAmount.innerText = "CEO Cat: " + ceoCat.toString();
 	tomAmount.innerText = "Tomcat: " + tomCat.toString();
-
+	mafiaAmount.innerText = "Mafia Cat: "  + mafiaCat.toString();
+	totalMeowllings.innerText = meowllings.toString();
 	console.log("Loaded!");
 }
 
@@ -57,6 +66,8 @@ function purchaseCat(type, cost) {
 	if (meowllings < cost) {
 		return false;
 	}
+	let buySound = new Audio('../resources/catbuy.mp3')
+	buySound.play()
 	meowllings -= cost;
 	switch (type) {
 		case 1:
@@ -82,6 +93,10 @@ function purchaseCat(type, cost) {
         case 6:
 			tomCat += 1;
             tomAmount.innerText = "Tomcat: " + tomCat.toString();
+			break;
+		case 7:
+			mafiaCat += 1;
+			mafiaAmount.innerText = "Mafia Cat: " + mafiaCat.toString();
 			break;
 	}
 	saveAll();
@@ -151,9 +166,20 @@ function purchaseCat(type, cost) {
 			if (i) tomEarning(i);
 			return;
 		}
-		addMeowlling(1998);
+		addMeowlling(19980);
 		if (i) tomEarning(i);
 	}, 1000 / tomCat);
+})(1);
+
+(function mafiaEarning(i) {
+	setTimeout(function () {
+		if (mafiaCat == 0) {
+			if (i) mafiaEarning(i);
+			return;
+		}
+		addMeowlling(780);
+		if (i) mafiaEarning(i);
+	}, 1000 / mafiaCat);
 })(1);
 
 (function autoSave(i) {
@@ -169,4 +195,8 @@ function addMeowlling(amount) {
 	console.log(meowlingsFormatted);
 	console.log("you have " + meowlingsFormatted + " meowllings!")
 	document.getElementById("totalMeowllings").innerHTML = meowlingsFormatted;
+	meowllingsFormatted = String(meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
+	console.log(meowllingsFormatted);
+	console.log("you have " + meowllings + " meowllings!")
+	document.getElementById("totalMeowllings").innerHTML = meowllingsFormatted;
 }
