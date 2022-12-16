@@ -7,6 +7,7 @@ window.onload = function() {
         getAllUsers()
     }
     let song = new Audio('../resources/keyboard.mp3')
+    song.loop = true
     song.play()
   }
 
