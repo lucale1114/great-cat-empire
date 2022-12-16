@@ -21,7 +21,15 @@ public class User {
     private int performerCat = 0;
 	private int luckyCat = 0;
     private int ceoCat = 0;
-	private int tomCat = 0;
+    private int mafiaCat = 0;
+    
+	public int getMafiaCat() {
+        return mafiaCat;
+    }
+    public void setMafiaCat(int mafiaCat) {
+        this.mafiaCat = mafiaCat;
+    }
+    private int tomCat = 0;
     
     public int getId() {
         return id;

@@ -4,29 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\css\userList.css">
     <link rel="stylesheet" href="..\css\styles.css">
     <link rel="icon" type="image/x-icon" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/42a90bd0-7547-46e6-b670-f76805a7f1de/datnw9e-67fbd1a7-36c6-4326-9b92-45306a0a19f8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQyYTkwYmQwLTc1NDctNDZlNi1iNjcwLWY3NjgwNWE3ZjFkZVwvZGF0bnc5ZS02N2ZiZDFhNy0zNmM2LTQzMjYtOWI5Mi00NTMwNmEwYTE5ZjgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OgCXotK8JgDRdPDTfcbqFjeQLpEpb_nkMSPcXnGo4h8">
     <title>Great Cat Empire</title>
 </head>
+
 <body>
-    <script type="module" src="..\js\REST.js" defer>window.onload = getAllUsers</script>
-
+    <script type="module" src="..\js\REST.js" defer></script>
     <a href="index.html">Back</a>
+    <hr>
+    <textarea rows="4" cols="80" id="commentBox"></textarea>
+    <br>
+    <button type="submit" id="postComment">Post</button>
+    <hr>
 
-    <h1>All Players</h1>
-    <hr/>
-    <ul id="users">
-        <div class="userEntry">
-            <div style="display: flex;">
-                <img src="https://pngimg.com/uploads/cat/cat_PNG50480.png" height="30" width="30" style="margin-top: 1em; margin-right: -1em; margin-left: 1em;">
-                <h2>Name</h2>
-            </div>
-            <div style="display:flex;">
-                <h3>Meowllings: 0</h3>
-                <h3>Total Cats: 0</h3>
-            </div>
-        </div>
-    </ul>
+    <div class="comment" style="border: 0.01em solid black; padding-left: 1em; color: white;">
+        <h2>Friend</h2>
+        <h3><em>2022-01-01</em></h3>
+        <p>Hi im friend</p>
+    </div>
+    
 </body>
 </html>
