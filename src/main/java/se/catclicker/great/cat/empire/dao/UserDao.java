@@ -44,4 +44,5 @@ public class UserDao {
 
         throw new AccountNotFoundException("Unable to find user " + user);
     }
+
 }
