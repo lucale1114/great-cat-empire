@@ -16,4 +16,12 @@ public class UserService {
     public List<User> getAllUsers(){
         return userrep.findAll();
     }
+
+    public List<User> searchByUsername(String username) {
+        return userrep.findByUsernameContaining(username);
+    }
+
+    
+
 }
+
