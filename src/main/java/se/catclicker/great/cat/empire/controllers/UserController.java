@@ -27,7 +27,7 @@ public class UserController {
     @CrossOrigin
     @RequestMapping("/findusers")
     public List<User> getUserByName(@RequestParam (value = "search", required = false) String username){
-        return userService.searchByUsername(username);
+        return userService.findUser(username);
     }
     
 

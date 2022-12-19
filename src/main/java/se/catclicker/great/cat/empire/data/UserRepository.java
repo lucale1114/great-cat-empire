@@ -9,9 +9,5 @@ import org.springframework.stereotype.Repository;
 import se.catclicker.great.cat.empire.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
-
-
-
-   
-   List<User> findByUsernameContaining(String username);
+    List<User> findByUsernameContaining(String username);
 }
