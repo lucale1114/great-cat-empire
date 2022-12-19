@@ -38,6 +38,9 @@ window.onload = function() {
             });
         }
     }
+	if (window.location.href.indexOf('comment.html') > -1) {
+        getAllComments()
+    }
     let song = new Audio('../resources/keyboard.mp3')
     song.play()
   }
