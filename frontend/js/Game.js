@@ -16,6 +16,7 @@ let luckyCat = 0;
 let ceoCat = 0;
 let tomCat = 0;
 let mafiaCat = 0;
+let burningCat = 0;
 
 // These functions are used locally. If the user goes to
 // the stats screen and comes back their values should be available immediately
@@ -39,6 +40,7 @@ function saveAll() {
 	localStorage.setItem("ceoCat", ceoCat);
 	localStorage.setItem("tomCat", tomCat);
 	localStorage.setItem("mafiaCat", mafiaCat);
+	localStorage.setItem("burningCat", burningCat);
 	console.log("Saved!");
 }
 function loadAll() {
@@ -51,6 +53,7 @@ function loadAll() {
 	ceoCat = parseInt(localStorage.getItem("ceoCat"));
 	tomCat = parseInt(localStorage.getItem("tomCat"));
 	mafiaCat = parseInt(localStorage.getItem("mafiaCat"))
+	burningCat = parseInt(localStorage.getItem("burningCat"))
 
 	robberAmount.innerText = "Robber Cat: " + robberCat.toString();
 	pirateAmount.innerText = "Pirate Cat: " + pirateCat.toString();
@@ -58,7 +61,9 @@ function loadAll() {
 	luckyAmount.innerText = "Lucky Cat: " + luckyCat.toString();
 	ceoAmount.innerText = "CEO Cat: " + ceoCat.toString();
 	tomAmount.innerText = "Tomcat: " + tomCat.toString();
-	mafiaAmount.innerText = "Mafia Cat: "  + mafiaCat.toString();
+	mafiaAmount.innerText = "Mafia Cat: " + mafiaCat.toString();
+	burningAmount.innerText = "Burning Cat: " + burningCat.toString();
+
 	totalMeowllings.innerText = meowllings.toString();
 	meowllingsPerSec.innerText = "You are gaining " + meowllingsPerSecond.toString() + " meowllings per second!";
 	console.log("Loaded!");
@@ -81,10 +86,10 @@ function purchaseCat(type, cost) {
 			perSecond(1);
 			robberAmount.innerText = "Robber Cat: " + robberCat.toString();
 			break;
-			case 2:
-				pirateCat += 1;
-				perSecond(6);
-				pirateAmount.innerText = "Pirate Cat: " + pirateCat.toString();
+		case 2:
+			pirateCat += 1;
+			perSecond(6);
+			pirateAmount.innerText = "Pirate Cat: " + pirateCat.toString();
 			break;
 		case 3:
 			performerCat += 1;
@@ -99,17 +104,22 @@ function purchaseCat(type, cost) {
 		case 5:
 			ceoCat += 1;
 			perSecond(254);
-            ceoAmount.innerText = "CEO Cat: " + ceoCat.toString();
+			ceoAmount.innerText = "CEO Cat: " + ceoCat.toString();
 			break;
-        case 6:
+		case 6:
 			tomCat += 1;
 			perSecond(19980);
-            tomAmount.innerText = "Tomcat: " + tomCat.toString();
+			tomAmount.innerText = "Tomcat: " + tomCat.toString();
 			break;
 		case 7:
 			mafiaCat += 1;
 			perSecond(780);
 			mafiaAmount.innerText = "Mafia Cat: " + mafiaCat.toString();
+			break;
+		case 8:
+			burningCat += 1;
+			perSecond(666666);
+			burningAmount.innerText = "Burning Cat: " + burningCat.toString();
 			break;
 	}
 	saveAll();
@@ -193,6 +203,17 @@ function purchaseCat(type, cost) {
 		addMeowlling(780);
 		if (i) mafiaEarning(i);
 	}, 1000 / mafiaCat);
+})(1);
+
+(function burningEarning(i) {
+	setTimeout(function () {
+		if (burningCat == 0) {
+			if (i) burningEarning(i);
+			return;
+		}
+		addMeowlling(666666);
+		if (i) burningEarning(i);
+	}, 1000 / burningCat);
 })(1);
 
 (function autoSave(i) {
