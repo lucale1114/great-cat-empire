@@ -3,6 +3,7 @@ package se.catclicker.great.cat.empire.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import se.catclicker.great.cat.empire.data.UserRepository;
@@ -17,11 +18,10 @@ public class UserService {
         return userrep.findAll();
     }
 
-    public List<User> searchByUsername(String username) {
-        return userrep.findByUsernameContaining(username);
-    }
-
     
+   public List<User> findUser(String username){
+        return userrep.findByUsernameContaining(username);
+   } 
 
 }
 
