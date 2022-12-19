@@ -21,4 +21,9 @@ public class UserService {
     public List<User> getTopTenUsers() {
         return userrep.findAll(Sort.by(Sort.Direction.DESC, "meowllings"));
     }
+    
+   public List<User> findUser(String username){
+        return userrep.findByUsernameContaining(username);
+   } 
+
 }
