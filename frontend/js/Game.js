@@ -1,6 +1,9 @@
 let meowllings = 0;
+let meowllingsPerSecond = 0;
 // Use this for showing the value. It is formatted
 let meowllingsFormatted = "0";
+
+
 
 // To add a new cat here, add a variable everywhere appropriate (saveall, below here, loadall)
 // In purchase cat, add your type and price
@@ -28,6 +31,7 @@ function clickedCat() {
 }
 function saveAll() {
 	localStorage.setItem("meowllings", meowllings);
+	localStorage.setItem("meowllingsPerSecond", meowllingsPerSecond)
 	localStorage.setItem("robberCat", robberCat);
 	localStorage.setItem("pirateCat", pirateCat);
 	localStorage.setItem("performerCat", performerCat);
@@ -39,6 +43,7 @@ function saveAll() {
 }
 function loadAll() {
 	meowllings = parseInt(localStorage.getItem("meowllings"));
+	meowllingsPerSecond = parseInt(localStorage.getItem("meowllingsPerSecond"))
 	robberCat = parseInt(localStorage.getItem("robberCat"));
 	pirateCat = parseInt(localStorage.getItem("pirateCat"));
 	performerCat = parseInt(localStorage.getItem("performerCat"));
@@ -55,6 +60,7 @@ function loadAll() {
 	tomAmount.innerText = "Tomcat: " + tomCat.toString();
 	mafiaAmount.innerText = "Mafia Cat: "  + mafiaCat.toString();
 	totalMeowllings.innerText = meowllings.toString();
+	meowllingsPerSec.innerText = "You are gaining " + meowllingsPerSecond.toString() + " meowllings per second!";
 	console.log("Loaded!");
 }
 
@@ -72,30 +78,37 @@ function purchaseCat(type, cost) {
 	switch (type) {
 		case 1:
 			robberCat += 1;
+			perSecond(1);
 			robberAmount.innerText = "Robber Cat: " + robberCat.toString();
 			break;
-		case 2:
-			pirateCat += 1;
-			pirateAmount.innerText = "Pirate Cat: " + pirateCat.toString();
+			case 2:
+				pirateCat += 1;
+				perSecond(6);
+				pirateAmount.innerText = "Pirate Cat: " + pirateCat.toString();
 			break;
 		case 3:
 			performerCat += 1;
+			perSecond(18);
 			performerAmount.innerText = "Performer Cat: " + performerCat.toString();
 			break;
 		case 4:
 			luckyCat += 1;
+			perSecond(77);
 			luckyAmount.innerText = "Lucky Cat: " + luckyCat.toString();
 			break;
 		case 5:
 			ceoCat += 1;
+			perSecond(254);
             ceoAmount.innerText = "CEO Cat: " + ceoCat.toString();
 			break;
         case 6:
 			tomCat += 1;
+			perSecond(19980);
             tomAmount.innerText = "Tomcat: " + tomCat.toString();
 			break;
 		case 7:
 			mafiaCat += 1;
+			perSecond(780);
 			mafiaAmount.innerText = "Mafia Cat: " + mafiaCat.toString();
 			break;
 	}
@@ -191,12 +204,13 @@ function purchaseCat(type, cost) {
 
 function addMeowlling(amount) {
 	meowllings += amount;
-	meowlingsFormatted = String(meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
-	console.log(meowlingsFormatted);
-	console.log("you have " + meowlingsFormatted + " meowllings!")
-	document.getElementById("totalMeowllings").innerHTML = meowlingsFormatted;
 	meowllingsFormatted = String(meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
-	console.log(meowllingsFormatted);
-	console.log("you have " + meowllings + " meowllings!")
+	console.log("you have " + meowllingsFormatted + " meowllings!")
 	document.getElementById("totalMeowllings").innerHTML = meowllingsFormatted;
+}
+
+function perSecond(second) {
+	meowllingsPerSecond += second;
+	console.log("you get " + meowllingsPerSecond + " per second!");
+	document.getElementById("meowllingsPerSec").innerHTML = "You are gaining " + meowllingsPerSecond + " meowllings per second!";
 }
