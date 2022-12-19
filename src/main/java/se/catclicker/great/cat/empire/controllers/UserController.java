@@ -3,6 +3,7 @@ package se.catclicker.great.cat.empire.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,5 +21,12 @@ public class UserController {
     public List<User> getUsers(){
         List<User> users = userService.getAllUsers();
         return users;
+    }
+
+    @CrossOrigin
+    @RequestMapping("/topTenUsers")
+    public List<User> getToUsers(){
+        List<User> topTen = userService.getTopTenUsers();
+        return topTen;
     }
 }
