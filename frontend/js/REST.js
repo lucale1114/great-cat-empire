@@ -40,6 +40,7 @@ window.onload = function() {
         getAllComments()
     }
     let song = new Audio('../resources/keyboard.mp3')
+	song.loop = true
     song.play()
   }
 
