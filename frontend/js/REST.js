@@ -2,41 +2,14 @@ import User from "./User.js";
 import Comment from "./Comment.js";
 
 // The if will run that said function when you're on said page. Can use this for your page
-window.onload = function () {
-	if (window.location.href.indexOf("userspage.html") > -1) {
-		getAllUsers();
-	}
-	if (window.location.href.indexOf("comment.html") > -1) {
-		getAllComments();
-
-		postComment.onclick = function () {
-			let commentBox = document.getElementById("commentBox");
-			let template = document.getElementsByClassName("comment");
-
-			let duped = template.item(0).cloneNode(true);
-			duped.children[0].innerText = "userman";
-			duped.children[1].innerText = Date.now().toString().split("T")[0];
-			duped.children[2].innerText = commentBox.value;
-			document.body.append(duped);
-
-			let xhr = new XMLHttpRequest();
-			xhr.open("POST", "http://localhost:8080/addComment", true);
-			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.send(
-				JSON.stringify({
-					poster: "userman",
-					content: commentBox.value,
-					timePosted: Date.now(),
-				})
-			);
-
-			commentBox.value = "";
-		};
-	}
-	let song = new Audio("../resources/keyboard.mp3");
-	song.loop = true;
-	song.play();
-};
+window.onload = function() {
+   
+    if (window.location.href.indexOf('userspage.html') > -1) {
+        getAllUsers()
+    }
+    let song = new Audio('../resources/keyboard.mp3')
+    song.play()
+  }
 
 function getAllUsers() {
 	let users = [];
@@ -104,4 +77,11 @@ function getAllComments() {
 			}
 			document.body.removeChild(template[0]);
 		});
+
+   
+
+    
+}
+function searchByUsername(){
+    
 }

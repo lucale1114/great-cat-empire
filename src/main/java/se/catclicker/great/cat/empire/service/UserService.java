@@ -18,7 +18,10 @@ public class UserService {
         return userrep.findAll();
     }
 
+    
    public List<User> findUser(String username){
         return userrep.findByUsernameContaining(username);
    } 
+
 }
+
