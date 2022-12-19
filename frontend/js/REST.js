@@ -39,6 +39,7 @@ window.onload = function() {
 	if (window.location.href.indexOf('comment.html') > -1) {
         getAllComments()
     }
+	getTopTenUsers()
     let song = new Audio('../resources/keyboard.mp3')
 	song.loop = true
     song.play()
@@ -82,6 +83,37 @@ function getAllUsers() {
 			ul.removeChild(template[0]);
 		});
 }
+
+function getTopTenUsers() {
+	let users = [];
+	fetch("http://localhost:8080/topTenUsers")
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data);
+			for (let v of data) {
+				let user = new User();
+				user.id = v.id;
+				user.meowllings = String(v.meowllings).replace(
+					/(.)(?=(\d{3})+$)/g,
+					"$1,"
+				);
+				user.username = v.username;
+				user.password = v.password;
+				users.push(user);
+			}
+			let ul = document.getElementById("topUsers");
+			let template = document.getElementsByClassName("userEntries");
+			for (const v of users) {
+				let duped = template.item(0).cloneNode(true);
+				duped.children[0].children[1].innerText = v.username;
+				duped.children[1].children[0].innerText =
+					"Meowllings: \n" + v.meowllings;
+				ul.append(duped);
+			}
+			ul.removeChild(template[0]);
+		});
+}
+
 
 function getAllComments() {
 	let comments = [];
