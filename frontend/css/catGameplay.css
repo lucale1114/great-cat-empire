@@ -6,4 +6,15 @@
 #buttonImage img {
     padding-top: 0;
     margin-left: 0;
+    
+
+}
+
+#catClicker {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
