@@ -39,7 +39,7 @@ window.onload = function() {
 	if (window.location.href.indexOf('comment.html') > -1) {
         getAllComments()
     }
-	getTopTenUsers()
+	//getTopTenUsers()
     let song = new Audio('../resources/keyboard.mp3')
 	song.loop = true
     song.play()
