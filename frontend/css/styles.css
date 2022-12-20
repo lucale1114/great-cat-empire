@@ -10,7 +10,7 @@ div{
 .flex0{
     
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 10%;
     transform: translate(-50% , -50%);
     background-color: white;
@@ -31,8 +31,8 @@ div{
 .flex2{
     
     position: absolute;
-    top: 50%;
-    left: 89%;
+    top: 60%;
+    left: 87%;
     transform: translate(-50% , -50%);
     background-color: white;
     width: 350px;
@@ -45,7 +45,7 @@ div{
     
     position: absolute;
     top: 10%;
-    left: 90%;
+    left: 87%;
     transform: translate(-50% , -50%);
     background-color: white;
     width: 200px;
