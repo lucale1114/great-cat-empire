@@ -2,48 +2,52 @@ import User from "./User.js";
 import Comment from "./Comment.js";
 
 // The if will run that said function when you're on said page. Can use this for your page
-window.onload = function() {
-   
-    if (window.location.href.indexOf('userspage.html') > -1) {
+window.onload = function () {
+
+	if (window.location.href.indexOf('userspage.html') > -1) {
 		console.log("LOADED")
 		getAllUsers()
-        searchButton.onclick = function () {
-			let users =[];
-            fetch("http://localhost:8080/findusers?search=" + searchByUsername.value)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                for (let v of data) {
-                    let user = new User();
-                    user.id = v.id;
-                    user.meowllings = String(v.meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
-                    user.username = v.username;
-                    user.password = v.password;
-                    user.catAmount = parseInt(v.robberCat) + parseInt(v.pirateCat) + parseInt(v.performerCat) + parseInt(v.luckyCat)
-                     + parseInt(v.ceoCat) + parseInt(v.tomCat) 
-                    users.push(user);              
-                }
-                let ul = document.getElementById("users");
-                let template = document.getElementsByClassName("userEntry");
-                for (const v of users) {
-                    let duped = template.item(0).cloneNode(true);
-                    duped.children[0].children[1].innerText = v.username
-                    duped.children[1].children[0].innerText = "Meowllings: \n" + v.meowllings
-                    duped.children[1].children[1].innerText = "Total Cats: \n" + v.catAmount
-                    ul.append(duped)
-                }
-                ul.removeChild(template[0])
-            });
-        }
-    }
+		searchButton.onclick = function () {
+			let users = [];
+			fetch("http://localhost:8080/findusers?search=" + searchByUsername.value)
+				.then((response) => response.json())
+				.then((data) => {
+					console.log(data);
+					for (let v of data) {
+						let user = new User();
+						user.id = v.id;
+						user.meowllings = String(v.meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
+						user.username = v.username;
+						user.password = v.password;
+						user.catAmount = parseInt(v.robberCat) + parseInt(v.pirateCat) + parseInt(v.performerCat) + parseInt(v.luckyCat)
+							+ parseInt(v.ceoCat) + parseInt(v.tomCat)
+						users.push(user);
+					}
+					let ul = document.getElementById("users");
+					let template = document.getElementsByClassName("userEntry");
+					for (const v of users) {
+						let duped = template.item(0).cloneNode(true);
+						duped.children[0].children[1].innerText = v.username
+						duped.children[1].children[0].innerText = "Meowllings: \n" + v.meowllings
+						duped.children[1].children[1].innerText = "Total Cats: \n" + v.catAmount
+						ul.append(duped)
+					}
+					ul.removeChild(template[0])
+				});
+		}
+	}
+	if (window.location.href.indexOf('index.html') > -1) {
+		getTopTenUsers();
+
+	}
 	if (window.location.href.indexOf('comment.html') > -1) {
-        getAllComments()
-    }
+		getAllComments()
+	}
 	//getTopTenUsers()
-    let song = new Audio('../resources/keyboard.mp3')
+	let song = new Audio('../resources/keyboard.mp3')
 	song.loop = true
-    song.play()
-  }
+	song.play()
+}
 
 function getAllUsers() {
 	let users = [];
@@ -54,64 +58,53 @@ function getAllUsers() {
 			for (let v of data) {
 				let user = new User();
 				user.id = v.id;
-				user.meowllings = String(v.meowllings).replace(
-					/(.)(?=(\d{3})+$)/g,
-					"$1,"
-				);
+				user.meowllings = String(v.meowllings).replace(/(.)(?=(\d{3})+$)/g, "$1,");
 				user.username = v.username;
 				user.password = v.password;
-				user.catAmount =
-					parseInt(v.robberCat) +
-					parseInt(v.pirateCat) +
-					parseInt(v.performerCat) +
-					parseInt(v.luckyCat) +
-					parseInt(v.ceoCat) +
-					parseInt(v.tomCat);
-				users.push(user);
-			}
-			let ul = document.getElementById("users");
-			let template = document.getElementsByClassName("userEntry");
-			for (const v of users) {
-				let duped = template.item(0).cloneNode(true);
-				duped.children[0].children[1].innerText = v.username;
-				duped.children[1].children[0].innerText =
-					"Meowllings: \n" + v.meowllings;
-				duped.children[1].children[1].innerText =
-					"Total Cats: \n" + v.catAmount;
-				ul.append(duped);
-			}
-			ul.removeChild(template[0]);
-		});
-}
-
-function getTopTenUsers() {
-	let users = [];
-	fetch("http://localhost:8080/topTenUsers")
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data);
-			for (let v of data) {
-				let user = new User();
-				user.id = v.id;
-				user.meowllings = String(v.meowllings).replace(
-					/(.)(?=(\d{3})+$)/g,
-					"$1,"
-				);
-				user.username = v.username;
-				user.password = v.password;
+				user.catAmount = parseInt(v.robberCat) + parseInt(v.pirateCat) + parseInt(v.performerCat) + parseInt(v.luckyCat)
+					+ parseInt(v.ceoCat) + parseInt(v.tomCat)
 				users.push(user);
 			}
 			let ul = document.getElementById("topUsers");
 			let template = document.getElementsByClassName("userEntries");
 			for (const v of users) {
 				let duped = template.item(0).cloneNode(true);
-				duped.children[0].children[1].innerText = v.username;
-				duped.children[1].children[0].innerText =
-					"Meowllings: \n" + v.meowllings;
-				ul.append(duped);
+				duped.children[0].children[1].innerText = v.username
+				duped.children[1].children[0].innerText = "Meowllings: \n" + v.meowllings
+				duped.children[1].children[1].innerText = "Total Cats: \n" + v.catAmount
+				ul.append(duped)
 			}
-			ul.removeChild(template[0]);
+			ul.removeChild(template[0])
 		});
+}
+
+function getTopTenUsers() {
+	let users = [];
+	fetch("http://localhost:8080/topTenUsers")
+	.then((response) => response.json())
+	.then((data) => {
+		console.log(data);
+		for (let v of data) {
+			let user = new User();
+			user.id = v.id;
+			user.meowllings = String(v.meowllings).replace(
+				/(.)(?=(\d{3})+$)/g,
+				"$1,"
+			);
+			user.username = v.username;
+			user.password = v.password;
+			users.push(user);
+		}
+		let ul = document.getElementById("topUsers");
+		let template = document.getElementsByClassName("userEntries");
+		for (const v of users) {
+			let duped = template.item(0).cloneNode(true);
+			//duped.children[0].children[1].innerText = v.username; // Cannot get username. Is it null?
+			duped.children[1].children[0].innerText = "Meowllings: \n" + v.meowllings;
+			ul.append(duped);
+		}
+		ul.removeChild(template[0]);
+	});
 }
 
 
@@ -143,8 +136,8 @@ function getAllComments() {
 			document.body.removeChild(template[0]);
 		});
 
-   
 
-    
+
+
 }
 
